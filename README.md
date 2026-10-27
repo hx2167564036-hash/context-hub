@@ -23,7 +23,7 @@ src/           核心：扫描 scan.mjs / HTTP 服务 server.mjs / MCP server / 
 scripts/       40+ 个运维脚本：抓课件、拉手机通知、抓窗口文本、写回 Obsidian、日报推送
 public/        本地 Web 界面（首页 / 今天 / holo 视图）
 desktop/       Electron 壳（main.js）
-extension/     Chrome 扩展
+extension/     Chrome 扩展（[单独说明](extension/README.md)：装法、权限、限制）
 config.example.json  配置样例（真实密钥已替换为占位符）
 ```
 
