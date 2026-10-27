@@ -5,11 +5,11 @@
 
 本地索引过 2,255 份文档；`data/context.db` 是 SQLite + FTS5 的单文件库（**不入库**，见下）。
 
-![全景控制台](docs/shot-holo.jpg)
+![全景控制台](https://cdn.jsdelivr.net/gh/hx2167564036-hash/context-hub@main/docs/shot-holo.jpg)
 
 <p align="center"><i>J.A.R.V.I.S 全景控制台：2,244 份资料在同一球体上，颜色区分来源，左侧是今天到期与最近入库。</i></p>
 
-![AI 上下文秘书](docs/shot-assistant.png)
+![AI 上下文秘书](https://cdn.jsdelivr.net/gh/hx2167564036-hash/context-hub@main/docs/shot-assistant.png)
 
 <p align="center"><i>右侧的「上下文秘书」：今天该做什么、本周课程、以及直接对库提问。</i></p>
 
