@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "天枢 · 校内采集器",
+  "version": "0.9.1",
+  "description": "复用你已登录的「爱城院」「学在城院」会话（*.hzcu.edu.cn），把通知、作业、课件自动同步到本地天枢",
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:7311/*",
+    "http://localhost:7311/*",
+    "https://*.hzcu.edu.cn/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.hzcu.edu.cn/*"
+      ],
+      "js": [
+        "inject.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://*.hzcu.edu.cn/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "天枢"
+  }
+}

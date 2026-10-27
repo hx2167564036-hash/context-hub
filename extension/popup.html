@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><style>
+  body { width: 340px; font: 13px -apple-system, "Microsoft YaHei", sans-serif; margin: 0; padding: 14px; background: #12151c; color: #e6e8ee; }
+  h1 { font-size: 14px; margin: 0 0 4px; }
+  .ver { color: #6b7488; font-size: 11px; margin-bottom: 10px; }
+  .row { display: flex; justify-content: space-between; gap: 10px; padding: 4px 0; color: #9aa3b8; }
+  .row b { color: #e6e8ee; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 210px; }
+  .ok { color: #4ade80 !important; } .bad { color: #f87171 !important; }
+  a.btn, button.btn { display: block; width: 100%; text-align: center; margin-top: 8px; padding: 7px; border-radius: 6px; border: 0;
+          background: #2b3550; color: #dce3f5; text-decoration: none; cursor: pointer; font-size: 13px; }
+  button.btn:hover { background: #37425f; }
+  .tip { color: #6b7488; font-size: 11px; line-height: 1.55; margin-top: 10px; }
+  .h { color: #6b7488; font-size: 11px; margin-top: 10px; }
+  pre { font-size: 10.5px; line-height: 1.45; color: #8b95ab; background: #0d1016; padding: 7px; border-radius: 5px;
+        max-height: 88px; overflow: auto; margin: 4px 0 0; white-space: pre-wrap; word-break: break-all; }
+</style></head><body>
+<h1>校内采集器</h1>
+<div class="ver">学在城院 · 爱城院 · v<span id="v">—</span></div>
+<div class="row"><span>本地中枢</span><b id="s">检测中…</b></div>
+<div class="row"><span>页面注入</span><b id="i">—</b></div>
+<div class="row"><span>待上传</span><b id="q">0</b></div>
+<div class="row"><span>上次抓到</span><b id="t">—</b></div>
+<div class="row"><span>最近结果</span><b id="r">—</b></div>
+<button class="btn btn-primary" id="syncNow">同步当前课程（全量）</button>
+<button class="btn" id="syncAll">同步所有课程</button>
+<button class="btn" id="inject">强制注入学在城院/爱城院标签页</button>
+<button class="btn" id="snap">抓当前页快照（诊断真实接口）</button>
+<button class="btn" id="test">发一条测试数据（验证通路）</button>
+<a class="btn" href="http://127.0.0.1:7311" target="_blank">打开天枢</a>
+<div class="h">页面最近请求</div>
+<pre id="seen">—</pre>
+<div class="h">事件日志</div>
+<pre id="log">—</pre>
+<div class="tip">在「学在城院」或「爱城院」网页上正常浏览即可：页面的通知/待办/课程请求会被顺手复制一份存到本机。打开课程页时还会自动把整门课（章节、课件、作业）同步一次，6 小时内不重复；打开课程列表页时自动同步全部课程，12 小时一次。不上传任何服务器。</div>
+<script src="popup.js"></script>
+</body></html>

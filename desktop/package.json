@@ -1,0 +1,15 @@
+﻿{
+    "name":  "ctxhub-desktop",
+    "productName":  "Tianshu",
+    "version":  "0.1.0",
+    "private":  true,
+    "description":  "天枢桌面端：悬浮「今天」小窗 + 主界面 + 托盘 + 每日简报",
+    "main":  "main.js",
+    "scripts":  {
+                    "start":  "electron .",
+                    "icon":  "node gen-icon.mjs"
+                },
+    "devDependencies":  {
+                            "electron":  "^31.7.7"
+                        }
+}

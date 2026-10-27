@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>今天 · 天枢</title>
+<link rel="stylesheet" href="/today.css">
+</head>
+<body>
+<header class="th">
+  <div class="hid">
+    <div class="orb"><span>AI</span></div>
+    <div class="hcol">
+      <div class="hi" id="hi">你好</div>
+      <div class="date" id="date"></div>
+    </div>
+  </div>
+  <div class="tools">
+    <button class="icon" id="btn-refresh" title="刷新">↻</button>
+    <button class="icon" id="btn-holo" title="全息控制台">✦</button>
+    <button class="icon" id="btn-main" title="打开中枢">⤢</button>
+    <button class="icon" id="btn-min" title="最小化">–</button>
+    <button class="icon" id="btn-hide" title="收起">✕</button>
+  </div>
+</header>
+
+<main>
+  <section id="sec-class">
+    <h2>今天的课 <span class="n" id="n-class"></span><span class="hint" id="hint-week"></span></h2>
+    <div id="class-list" class="rows"></div>
+  </section>
+
+  <section id="sec-due">
+    <h2>要做的事 <span class="n" id="n-due"></span><span class="hint">按剩余时间排序</span></h2>
+    <div id="due-list" class="cards"></div>
+  </section>
+
+  <section id="sec-week">
+    <h2>本周 <span class="n" id="n-week"></span></h2>
+    <div id="week-list" class="rows"></div>
+  </section>
+
+  <section id="sec-fresh">
+    <h2>这两天进库的 <span class="n" id="n-fresh"></span></h2>
+    <div id="fresh-list" class="rows"></div>
+  </section>
+
+  <section id="sec-search">
+    <h2>找东西</h2>
+    <div class="sbox">
+      <svg viewBox="0 0 16 16"><circle cx="7.2" cy="7.2" r="4.6"/><path d="M10.6 10.6L14 14"/></svg>
+      <input id="q" type="search" placeholder="雅思 口语 / 可行性研究 / 线性回归 …">
+    </div>
+    <div id="hits" class="rows"></div>
+  </section>
+</main>
+<footer>
+  <span class="live"><i></i></span>
+  <span id="foot-stats"></span>
+</footer>
+<script src="/today.js"></script>
+</body>
+</html>

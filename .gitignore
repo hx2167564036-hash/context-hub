@@ -1,0 +1,18 @@
+# 数据与产物（本仓库只放代码与文档）
+data/
+tools/
+*.db
+*.sqlite*
+*.log
+*.exe
+node_modules/
+__pycache__/
+.venv/
+venv/
+dist/
+build/
+.env
+config.json
+project.private.config.json
+_preview*
+*.bak

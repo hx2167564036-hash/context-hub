@@ -1,0 +1,32 @@
+{
+  "name": "my-context-hub",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "天枢：把散落在本机各处与校园平台的资料汇总成可检索的知识库",
+  "scripts": {
+    "scan": "node src/scan.mjs",
+    "serve": "node src/server.mjs",
+    "start": "node scripts/start-server.mjs",
+    "restart": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/restart-server.ps1",
+    "dev": "node src/scan.mjs && node src/server.mjs",
+    "courseware": "node scripts/fetch-courseware.mjs 200 200",
+    "sync-courseware": "node scripts/fetch-courseware.mjs 200 200 && node src/scan.mjs",
+    "reindex": "node scripts/reindex-tron.mjs",
+    "stats": "node scripts/stats.mjs",
+    "extract-one": "node scripts/extract-one.mjs",
+    "mcp": "node scripts/mcp-server.mjs",
+    "mcp:doctor": "node scripts/mcp-doctor.mjs",
+    "phone:attach": "node scripts/phone-attach.mjs",
+    "adb:pull": "node scripts/adb-pull.mjs",
+    "grab:dingtalk": "node scripts/grab-window.mjs --app dingtalk",
+    "grab:wechat": "node scripts/grab-window.mjs --app wechat",
+    "writeback": "node scripts/obsidian-writeback.mjs",
+    "writeback:dry": "node scripts/obsidian-writeback.mjs --dry",
+    "clean:test": "node scripts/clean-test.mjs",
+    "phone:notify": "node scripts/adb-notify.mjs",
+    "notify:clean": "node scripts/clean-notify.mjs --list",
+    "schedule:ingest": "node scripts/ingest-schedule.mjs",
+    "hindsight:check": "node scripts/hindsight-check.mjs"
+  }
+}

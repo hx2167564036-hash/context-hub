@@ -1,0 +1,67 @@
+{
+  "dbPath": "data/context.db",
+  "port": 7311,
+  "pushplus": {
+    "token": "REPLACE_WITH_PUSHPLUS_TOKEN",
+    "enabled": true,
+    "time": "09:30"
+  },
+  "host": "127.0.0.1",
+  "pythonPath": "python",
+  "extractScript": "tools/extract.py",
+  "maxFileMB": 80,
+  "maxTextChars": 400000,
+  "officeBatch": 40,
+  "excludeDirs": [
+    "node_modules",
+    ".git",
+    ".obsidian",
+    "__pycache__",
+    "$RECYCLE.BIN",
+    "System Volume Information",
+    ".venv",
+    "venv",
+    "dist",
+    "build"
+  ],
+  "roots": [
+    {
+      "path": "D:/your-notes",
+      "source": "fs",
+      "label": "示例目录"
+    },
+    {
+      "path": "D:/your-courseware",
+      "source": "hzcu",
+      "label": "示例课件目录"
+    }
+  ],
+  "excludePathRegex": [
+    "\\\\applet\\\\",
+    "gamecaches",
+    "\\\\cache\\\\",
+    "webview_caches",
+    "\\\\temp\\\\",
+    "\\\\node_modules\\\\",
+    "\\\\\\.git\\\\",
+    "\\\\wemeet\\\\",
+    "\\\\deepseek-harness\\\\",
+    "\\\\qoder\\\\",
+    "\\\\built_in_apps\\\\",
+    "\\\\resources\\\\raw\\\\",
+    "\\\\豆皮\\.backup\\\\"
+  ],
+  "minJsonBytes": 3000,
+  "lan": {
+    "enabled": true,
+    "token": "REPLACE_WITH_LAN_TOKEN"
+  },
+  "deepseek": {
+    "model": "deepseek-chat",
+    "key": "sk-REPLACE_ME"
+  },
+  "schedule": {
+    "file": "data/schedule.json",
+    "week1Monday": "2026-09-14"
+  }
+}

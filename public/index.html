@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天枢 · AI 秘书</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%235b8cff'/><stop offset='.6' stop-color='%23a78bfa'/><stop offset='1' stop-color='%2322d3ee'/></linearGradient></defs><rect width='32' height='32' rx='9' fill='url(%23g)'/><circle cx='16' cy='16' r='5' fill='white' opacity='.9'/></svg>">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="rail">
+    <div class="logo" title="天枢"></div>
+    <nav class="rnav">
+      <button class="navbtn on" data-tab="search" title="检索">
+        <svg viewBox="0 0 16 16"><circle cx="7.2" cy="7.2" r="4.6"/><path d="M10.6 10.6L14 14"/></svg>检索
+      </button>
+      <button class="navbtn" data-tab="timeline" title="时间线">
+        <svg viewBox="0 0 16 16"><path d="M4 2.5v11"/><circle cx="8.6" cy="5" r="1.5"/><circle cx="8.6" cy="11" r="1.5"/><path d="M10.6 5H14M10.6 11h2.4"/></svg>时间线
+      </button>
+      <button class="navbtn" data-tab="due" title="截止">
+        <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 4.4V8l2.6 1.6"/></svg>截止
+      </button>
+    </nav>
+    <div class="spacer"></div>
+    <div class="pulse" id="live" title="本地服务在线"></div>
+    <button class="navbtn" id="btnSet2" title="设置">
+      <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="2.3"/><path d="M8 1.8v1.9M8 12.3v1.9M1.8 8h1.9M12.3 8h1.9M3.6 3.6l1.3 1.3M11.1 11.1l1.3 1.3M12.4 3.6l-1.3 1.3M4.9 11.1l-1.3 1.3"/></svg>设置
+    </button>
+  </aside>
+
+  <div class="stage">
+    <header class="topbar">
+      <div class="brand">
+        <h1>天枢 <i></i></h1>
+        <div class="sub">AI Context OS · local</div>
+      </div>
+      <div class="chips" id="stats"><span class="chip">连接本地服务…</span></div>
+      <button class="btn-set" id="btnHolo">全息控制台</button>
+      <button class="btn-set" id="btnSet">晨报设置</button>
+    </header>
+
+    <div class="workspace" id="ws">
+      <section class="col-list">
+        <div class="cmd">
+          <div class="cmdbar">
+            <svg viewBox="0 0 16 16"><circle cx="7.2" cy="7.2" r="4.6"/><path d="M10.6 10.6L14 14"/></svg>
+            <input id="q" type="search" placeholder="搜索全部资料：「可行性研究」「雅思 口语」…" autocomplete="off">
+            <kbd>Ctrl K</kbd>
+          </div>
+          <div class="filters">
+            <select id="source" class="pill"><option value="">全部来源</option></select>
+            <select id="kind" class="pill"><option value="">全部类型</option></select>
+          </div>
+        </div>
+        <div class="resultmeta" id="resultmeta"></div>
+        <div class="list" id="list"></div>
+      </section>
+      <section class="col-view empty" id="detail"></section>
+    </div>
+
+    <div class="viewwrap hidden" id="timeline"></div>
+    <div class="viewwrap hidden" id="due"></div>
+  </div>
+</div>
+
+<div class="mask hidden" id="setMask">
+  <div class="dlg">
+    <div class="dlgtitle">每天早上把「今天要做什么」推到微信</div>
+    <div class="dlghint">微信扫码登录 <b>pushplus.plus</b> → 「一对一推送」→ 复制 32 位 token 粘到这里。免费额度每天 200 条。</div>
+    <label>PushPlus token<input id="setToken" type="password" placeholder="32 位 token" autocomplete="off"></label>
+    <label class="row">每天推送时间<input id="setTime" type="time" value="08:30"></label>
+    <label class="row"><input id="setEnabled" type="checkbox"> 启用每日推送（电脑开机且桌面端在运行时生效）</label>
+    <div class="subhead">AI 回答（可选）</div>
+    <div class="dlghint">填 DeepSeek API Key 后，右侧「问问这个库」会先检索本机资料，再让模型根据这些资料作答，答案带出处。</div>
+    <label>DeepSeek API Key<input id="setModelKey" type="password" placeholder="sk-…" autocomplete="off"></label>
+    <div class="dlgstatus" id="setStatus"></div>
+    <div class="dlgbtns">
+      <button id="btnTestPush" class="ghost">发一条到微信（测试）</button>
+      <span class="spacer"></span>
+      <button id="btnSetClose" class="ghost">关闭</button>
+      <button id="btnSetSave" class="primary">保存</button>
+    </div>
+  </div>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>

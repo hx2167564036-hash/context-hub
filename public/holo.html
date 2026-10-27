@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J.A.R.V.I.S · 全息控制台</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/holo.css">
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div class="grid"></div>
+<canvas id="lead"></canvas>
+<div id="nodes"></div>
+<div class="scan"></div>
+<div class="vignette"></div>
+
+<header class="hud-top">
+  <div class="brand">
+    <div class="orb"><span>AI</span></div>
+    <div>
+      <h1>J.A.R.V.I.S<em>全息控制台</em></h1>
+      <p>天枢 · 本机资料实时在场</p>
+    </div>
+  </div>
+
+  <div class="modes">
+    <span class="pill"><i></i>形态 <b id="m-shape">球体</b></span>
+    <span class="pill"><i></i>手势 <b id="m-gesture">未启用</b></span>
+    <span class="pill"><i></i>语音 <b id="m-voice">未启用</b></span>
+    <span class="pill"><i></i>同步 <b id="m-sync">—</b></span>
+  </div>
+
+  <div class="acts">
+    <button id="b-hands" class="btn">启用手势 <kbd>G</kbd></button>
+    <button id="b-mic" class="btn">语音 <kbd>V</kbd></button>
+    <button id="b-main" class="btn">主界面</button>
+    <button id="b-min" class="btn" title="最小化">–</button>
+    <button id="b-close" class="btn" title="关闭全息台">✕</button>
+  </div>
+</header>
+
+<aside class="ops" id="ops">
+  <div class="ohead">
+    <span class="otitle">作战面板</span>
+    <span class="odate" id="o-date">—</span>
+  </div>
+
+  <div class="dayline">
+    <div class="dl-track" id="dl-track"><div class="dl-now" id="dl-now" style="left:0%"></div></div>
+    <div class="dl-scale"><span>0</span><span>6</span><span>12</span><span>18</span><span>24</span></div>
+  </div>
+
+  <div class="osec">
+    <h3><i class="dot red"></i>今天到期 <b id="c-due">—</b></h3>
+    <ul id="list-due" class="olist"><li class="empty">加载中…</li></ul>
+  </div>
+
+  <div class="osec">
+    <h3><i class="dot cyan"></i>本周活动 <b id="c-week">—</b></h3>
+    <ul id="list-week" class="olist"><li class="empty">加载中…</li></ul>
+  </div>
+
+  <div class="osec">
+    <h3><i class="dot violet"></i>最近入库 <b id="c-fresh">—</b></h3>
+    <ul id="list-fresh" class="olist"><li class="empty">加载中…</li></ul>
+  </div>
+
+  <div class="legend" id="legend"><span>资料构成加载中…</span></div>
+</aside>
+
+<aside class="shapes">
+  <div class="stitle">形态</div>
+  <button class="sbtn on" data-shape="0">球体</button>
+  <button class="sbtn" data-shape="1">环体</button>
+  <button class="sbtn" data-shape="2">螺旋</button>
+  <button class="sbtn" data-shape="3">星系</button>
+  <button class="sbtn" data-shape="4">立方</button>
+  <button class="sbtn" data-shape="5">头像</button>
+  <div class="shint"><kbd>1</kbd>-<kbd>6</kbd> 切换 · 拖动旋转 · 滚轮缩放</div>
+</aside>
+
+<section class="tele">
+  <h2>系统遥测</h2>
+  <div class="trow"><span>资料</span><b id="t-docs">—</b></div>
+  <div class="trow"><span>体积</span><b id="t-bytes">—</b></div>
+  <div class="trow"><span>在办</span><b id="t-due">—</b></div>
+  <div class="trow"><span>本周课程</span><b id="t-week">—</b></div>
+  <div class="trow"><span>最近同步</span><b id="t-latest">—</b></div>
+  <div class="trow"><span>帧率</span><b id="t-fps">—</b></div>
+  <div class="trow"><span>状态</span><b id="t-state">待命</b></div>
+</section>
+
+<div class="subtitle"><span id="sub">系统就绪。按 / 提问；输入即检索，↑↓ 选择、Ctrl+Enter 打开；# 开头记一笔，/ 开头是命令。</span></div>
+
+<div class="hits" id="hits" hidden></div>
+
+<div class="askbar">
+  <span class="caret">&gt;</span>
+  <input id="ask" type="text" autocomplete="off" placeholder="问点什么 / 输入关键词即时检索 / #记一笔 / /help">
+  <button id="b-ask" class="btn primary">提问</button>
+  <button id="b-stop" class="btn">停止朗读</button>
+</div>
+
+<aside class="drawer" id="drawer" hidden>
+  <header>
+    <div class="dhead">
+      <h2 id="d-title">—</h2>
+      <p id="d-meta">—</p>
+    </div>
+    <button id="d-close" class="btn">关闭 <kbd>Esc</kbd></button>
+  </header>
+  <pre id="d-body"></pre>
+  <footer class="dfoot">
+    <button id="d-open" class="btn">在资源管理器里定位</button>
+    <button id="d-ask" class="btn primary">就这份提问</button>
+  </footer>
+</aside>
+
+<video id="cam" class="off" playsinline muted></video>
+
+<script type="module" src="/holo.js"></script>
+</body>
+</html>
