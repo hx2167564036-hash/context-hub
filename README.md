@@ -48,3 +48,5 @@ npm run scan                         # 建立索引
 npm run serve                        # http://127.0.0.1:7311
 npm run mcp:doctor                   # 检查 MCP 是否可用
 ```
+
+> 截图走 jsDelivr CDN（国内可直连）。若仍加载不出来，仓库里的 `docs/` 目录有同样的原文件。
